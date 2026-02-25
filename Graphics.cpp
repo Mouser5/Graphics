@@ -239,5 +239,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int nCmdShow) {
     if (m_pVertexShader) m_pVertexShader->Release();
     if (m_pPixelShader) m_pPixelShader->Release();
     if (m_pBackBufferRTV) m_pBackBufferRTV->Release();
+    
     if (m_pSwapChain) m_pSwapChain->Release();
+        if (m_pDeviceContext) {
+        m_pDeviceContext->ClearState(); 
+        m_pDeviceContext->Release();
+    }
+    if (m_pDevice) m_pDevice->Release();
 }
+
